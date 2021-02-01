@@ -4,29 +4,6 @@ body {
     font-family: Arial;
 }
 
-h1 {
-    text-align: center;
-}
-
-.left-right {
-    display: flex;
-    justify-content: space-between;
-}
-
-.result-form {
-    display: none;
-    background-color: white;
-    width: 200px;
-    padding: 20px;
-    padding-right: 20px;
-    margin: 0 auto;
-    margin-top: 10px;
-}
-
-.result-form-open {
-    display: block;
-}
-
 .container {
     height: 350px;
     width: 465px;

@@ -146,6 +146,10 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             cards[optionOneId].setAttribute('src', 'Images/back.jpg')
             cards[optionTwoId].setAttribute('src', 'Images/back.jpg')
+            cards[optionOneId].classList.remove('flip')//Ja nav vienādas, tad noņemam klasi flip, lai var apmest atpakaļ
+            cards[optionTwoId].classList.remove('flip')
+            cards[optionOneId].classList.add('turn-back')//Ja nav vienādas, tad pievienojam klasi turn-back lai apmet atpakaļ
+            cards[optionTwoId].classList.add('turn-back')
             container.classList.remove('flipped-card')//Noņem flipped-card klasi container, lai var atlasīt citas 2 kārtis
         }
         cardsChosen = []
@@ -170,6 +174,8 @@ document.addEventListener('DOMContentLoaded', () => {
     var flippedCards = []
 
     function flipCard() {
+        this.classList.remove('turn-back')//Noņemam turn-back klasi, lai bilde nav apgriezta otrādi
+        this.classList.add("flip")//Pievinojam flip klasi, kas apmet kārti otrādi
         flippedCards.push(this) //Masīvam flippedCards pievieno tikko apmesto kārti
         console.log(flippedCards)//Lai pārbaudītu vai masīvā nav vairāk par diviem elementiem
         this.classList.add('flipped-card')//Tikko apmestajai kārtij pievieno klasi flipped-card, kas izslēdz opciju divreiz apmest vienu un to pašu kārti pēc kārtas

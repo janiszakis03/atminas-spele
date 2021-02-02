@@ -13,13 +13,18 @@ body {
     height: 100px;
     width: 100px;
     margin: 5px;
-    transition: transform 1s;
+    transition: transform 0.5s;
     transform-style: preserve-3d;
     cursor: pointer;
 }
 
-.container img:active {
+.flip {
     transform: rotateY(180deg);
+    transform: scaleX(-1);
+}
+
+.turn-back {
+    transform: scaleX(1);
 }
 
 .flipped-card {

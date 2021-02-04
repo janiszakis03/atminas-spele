@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     var cardsChosen = []
     var cardsChosenId = []
     var cardsWon = []
+    var turns = 0
 
     //hronometrs
 
@@ -154,10 +155,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         cardsChosen = []
         cardsChosenId = []
-        resultDisplay.textContent = cardsWon.length //Parāda rezultātu, kas vienāds ar atminēto kāršu pāru skaitu
+        resultDisplay.textContent = turns //cardsWon.length //Parāda rezultātu, kas vienāds ar atminēto kāršu pāru skaitu
         if (cardsWon.length === 6) {
             clearInterval(Interval)//Izdzēšam laika intervālu, lai laiks apstātos
-            scoreBoard.textContent = 'Apsveicam! Tu atradi visus vienādos kāršu pārus!'
+            scoreBoard.textContent = 'Apsveicam! Spēli pabeidzi ar ' + turns + ' gājieniem!'
             resultDisplay.textContent = ''
             timeText.textContent = 'Tavs laiks'
             container.remove()//Noņemam spēles laukumu
@@ -184,6 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         cardsChosenId.push(cardId);
         this.setAttribute('src', cardArray[cardId].img)
         if (cardsChosen.length === 2) {
+            turns ++
             allowClick()//Izpilda allowClick funkciju, kas abām kārtīm noņem klasi, lai pēc tam, ja nav vienādas tās var pēc tam vēlreiz apmest otrādi
             flippedCards = []//Iztīra masīvu flippedCards, jo tās kuras tur ir iekšā, tām flipped-card klasi jau noņēma ar allowClick() funkciju
             container.classList.add('flipped-card')//Lai nevar apmest otrādi citas kārtis, kamēr pārbauda vai ir vienādas. Lai var tikai 2 kārtis atlasīt
